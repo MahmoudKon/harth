@@ -125,6 +125,13 @@ return [
     'the service' => 'Service',
 
 
+
+    // RANKS
+    'ranks' => 'Ranks',
+    'rank' => 'Rank',
+    'the rank' => 'Rank',
+
+
     // NOTIFICATIONS
     'notifications' => 'Notifications',
     'news' => 'News',

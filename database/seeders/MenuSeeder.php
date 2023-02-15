@@ -172,6 +172,10 @@ class MenuSeeder extends Seeder
                 'name' => ["en" => "Services", "ar" => "الخدمات"],
                 'route' => "services.index",
                 'icon' => "fa-solid fa-bell-concierge",
+            ], [
+                'name' => ["en" => "Ranks", "ar" => "المراتب"],
+                'route' => "ranks.index",
+                'icon' => "fa-solid fa-ranking-star",
             ],
         ];
 

@@ -124,6 +124,12 @@ return [
     'service' => 'خدمة',
     'the service' => 'الخدمة',
 
+
+    // RANKS
+    'ranks' => 'الرتب',
+    'rank' => 'مرتبة',
+    'the rank' => 'المرتبه',
+
     // NOTIFICATIONS
     'notifications' => 'الإشعارات',
     'news' => 'جديد',

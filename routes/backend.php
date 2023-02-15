@@ -151,3 +151,6 @@ Route::post('social_medias/{oauth_social}/column/{column}/toggle', 'SocialMediaC
 
 Route::resource('services', 'ServiceController'); 
 Route::post('services/multidelete', 'ServiceController@multidelete')->name('services.multidelete'); 
+
+Route::resource('ranks', 'RankController'); 
+Route::post('ranks/multidelete', 'RankController@multidelete')->name('ranks.multidelete'); 

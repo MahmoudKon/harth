@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OauthSocialSeeder::class);
         $this->call(SocialMediaSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(RankSeeder::class);
 
         $images = $this->GetApiImage('people');
 
