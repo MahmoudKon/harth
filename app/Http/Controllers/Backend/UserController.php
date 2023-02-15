@@ -9,7 +9,6 @@ use App\Http\Requests\ImportExcelRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Services\UserService;
 use App\Imports\UsersImport;
-use App\Models\Department;
 use App\Models\User;
 use Exception;
 use Maatwebsite\Excel\Facades\Excel;
@@ -67,7 +66,6 @@ class UserController extends BackendController
     public function append() :array
     {
         return [
-            'departments' => Department::filter()->pluck('title', 'id'),
             'roles' => Role::whereNotIn('name', SUPERADMIN_ROLES)->pluck('name', 'id')
         ];
     }

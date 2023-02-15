@@ -19,11 +19,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
-    const CODE_LENGTH = 6;
-
     protected $guard_name = 'web,api';
-
-    protected $with = ['department'];
 
     /**
      * The attributes that are mass assignable.
@@ -31,16 +27,22 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'code',
         'name',
         'email',
         'password',
         'image',
-        'department_id',
         'email_verified_at',
         'remember_token',
         'mobile_token',
-        'logged_in'
+        'logged_in',
+        'phone',
+        'fingerprint',
+        'gender',
+        'verfied',
+        'trusted',
+        'password_payments',
+        'balance',
+        'vf_code',
     ];
 
     /**
@@ -67,11 +69,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function department()
-    {
-        return $this->belongsTo(Department::class)->select('id', 'title', 'manager_id');
-    }
 
     public function socialAccounts()
     {
@@ -112,13 +109,5 @@ class User extends Authenticatable
     public function slug()
     {
         return "<a href='".routeHelper('users.edit', $this)."'>$this->name</a>";
-    }
-
-    public static function generateCode()
-    {
-        do {
-            $code = (Factory::create())->randomNumber(self::CODE_LENGTH, true);
-        } while ( self::query()->where('code', $code)->exists() );
-        return $code;
     }
 }

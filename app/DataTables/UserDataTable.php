@@ -26,21 +26,6 @@ class UserDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('check', 'backend.includes.tables.checkbox')
-            ->orderColumn('department_id', function($query, $order) {
-                return $query->whereHas('department', function($query) use($order) {
-                    return $query->orderBy('title', strtoupper($order));
-                });
-            })
-            ->editColumn('department_id', function(User $user) {
-                return $user->department_id
-                        ? "<a href='".routeHelper('departments.edit', $user->department_id)."' title='Edit Department' target='_blank'>".($user->department->title ?? "")."</a>"
-                        : "";
-            })
-            ->filterColumn('department_id', function ($query, $keywords) {
-                return $query->whereHas('department', function($query) use($keywords) {
-                    return $query->where('title', 'LIKE', "%$keywords%");
-                });
-            })
             ->editColumn('image', function(User $user) {
                 $view = new PreviewImage($user->image, $user->name);
                 return $view->render()->with($view->data());
@@ -55,7 +40,7 @@ class UserDataTable extends DataTable
                 return $view->render()->with($view->data());
             })
             ->editColumn('action', 'backend.includes.buttons.table-buttons')
-            ->rawColumns(['action', 'check', 'image', 'department_id', 'logged_in']);
+            ->rawColumns(['action', 'check', 'image', 'logged_in']);
     }
 
     /**
@@ -110,11 +95,9 @@ class UserDataTable extends DataTable
     {
         return [
             Column::make('check')->title('<label class="skin skin-square p-0 m-0"><input data-color="red" type="checkbox" class="switchery" id="check-all" style="width: 25px"></label>')->exportable(false)->printable(false)->orderable(false)->searchable(false)->width(15)->addClass('text-center')->footer(trans('buttons.delete')),
-            Column::make('code')->title('#')->width('70px'),
             Column::make('name')->title(trans('inputs.name')),
             Column::make('email')->title(trans('inputs.email')),
             Column::make('image')->title(trans('title.avatar'))->footer(trans('title.avatar'))->orderable(false),
-            Column::make('department_id')->title(trans('menu.department'))->footer(trans('menu.department')),
             Column::make('logged_in')->title(trans('menu.logout'))->class(canUser('users-forceLogout') ? '' : 'hidden')->footer(trans('menu.logout'))->searchable(false)->orderable(false),
             Column::computed('action')->exportable(false)->printable(false)->width(75)->addClass('text-center')->footer(trans('inputs.action'))->title(trans('inputs.action')),
         ];

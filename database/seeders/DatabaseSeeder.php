@@ -54,12 +54,12 @@ class DatabaseSeeder extends Seeder
             } catch (Exception $e) {}
         });
 
-        User::factory(30)->create()->each(function ($user) use($images) {
-            try {
-                $index = array_rand($images);
-                $user->update(['image' => $this->uploadApiImage($images[$index]['src']['medium'], 'users')]);
-                $user->roles()->attach(Role::whereNotIn('name', SUPERADMIN_ROLES)->inRandomOrder()->first()->id);
-            } catch (Exception $e) {}
-        });
+        // User::factory(30)->create()->each(function ($user) use($images) {
+        //     try {
+        //         $index = array_rand($images);
+        //         $user->update(['image' => $this->uploadApiImage($images[$index]['src']['medium'], 'users')]);
+        //         $user->roles()->attach(Role::whereNotIn('name', SUPERADMIN_ROLES)->inRandomOrder()->first()->id);
+        //     } catch (Exception $e) {}
+        // });
     }
 }

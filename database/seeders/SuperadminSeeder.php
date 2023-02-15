@@ -22,14 +22,20 @@ class SuperadminSeeder extends Seeder
         $images = $this->GetApiImage('people', 1);
 
         $data = [
-            'code'                  => 111111,
             'name'                  => 'super_admin',
             'email'                 => 'super_admin@app.com',
             'password'              => 123,
-            'department_id'         => Department::first()->id,
             'email_verified_at'     => now(),
             'remember_token'        => Str::random(10),
-            'image'                 => $this->uploadApiImage($images[0]['src']['medium'], 'users')
+            'image'                 => $this->uploadApiImage($images[0]['src']['medium'], 'users'),
+            'phone'                 => '011',
+            'fingerprint'           => '011',
+            'gender'                => '011',
+            'verfied'               => '011',
+            'trusted'               => true,
+            'password_payments'     => '011',
+            'balance'               => '011',
+            'vf_code'               => '011',
         ];
 
         $user = User::firstOrCreate(['email' => $data['email']], $data);
