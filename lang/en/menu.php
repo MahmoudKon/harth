@@ -118,6 +118,13 @@ return [
     'client'  => 'Client',
     'the client' => 'Client',
 
+
+    // SERVICES
+    'services' => 'Services',
+    'service' => 'Service',
+    'the service' => 'Service',
+
+
     // NOTIFICATIONS
     'notifications' => 'Notifications',
     'news' => 'News',

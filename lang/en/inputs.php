@@ -57,6 +57,9 @@ return [
     'prefix' => 'Prefix',
     'where' => 'Where',
 
+
+    'model name' => ':model Name',
+    
     // EMAILS SECTION
     'to' => 'To',
     'cc'    => 'CC',
@@ -105,4 +108,7 @@ return [
     'file_name' => 'File Name',
     'file_size' => 'File Size',
     'translations_count' => 'Translations Count',
+
+
+	// SERVICES
 ];

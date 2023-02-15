@@ -117,6 +117,13 @@ return [
     'client'  => 'عميل',
     'the client' => 'العميل',
 
+
+
+    // SERVICES
+    'services' => 'الخدمات',
+    'service' => 'خدمة',
+    'the service' => 'الخدمة',
+
     // NOTIFICATIONS
     'notifications' => 'الإشعارات',
     'news' => 'جديد',

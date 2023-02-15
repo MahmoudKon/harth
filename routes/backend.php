@@ -148,3 +148,6 @@ Route::controller('OauthSocialController')->as('oauth_socials.')->prefix('oauth_
 Route::resource('social_medias', 'SocialMediaController');
 Route::post('social_medias/multidelete', 'SocialMediaController@multidelete')->name('social_medias.multidelete');
 Route::post('social_medias/{oauth_social}/column/{column}/toggle', 'SocialMediaController@columnToggle')->name('social_medias.column.toggle');
+
+Route::resource('services', 'ServiceController'); 
+Route::post('services/multidelete', 'ServiceController@multidelete')->name('services.multidelete'); 

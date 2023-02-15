@@ -168,6 +168,10 @@ class MenuSeeder extends Seeder
                 'route' => "users.create",
                 'icon' => "fas fa-plus",
                 'parent_id' => $Users
+            ], [
+                'name' => ["en" => "Services", "ar" => "الخدمات"],
+                'route' => "services.index",
+                'icon' => "fa-solid fa-bell-concierge",
             ],
         ];
 

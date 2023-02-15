@@ -73,7 +73,7 @@ return [
 
 
     // GENERAL INPUTS
-    'model name' => 'ال:model إسم',
+    'model name' => 'إسم :model',
     'model image' => 'صورة :model',
     'file' => 'ملف',
 
@@ -113,4 +113,7 @@ return [
     'file_name' => 'إسم الملف',
     'file_size' => 'حجم الملف',
     'translations_count' => 'عدد الترجمات',
+
+
+	// SERVICES
 ];
